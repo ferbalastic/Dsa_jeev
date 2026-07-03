@@ -30,7 +30,7 @@ void selection_sort(vector<int> arr, int n)
 
 void bubble_sort(vector<int> arr,int n)
 {
-    //
+    //some improvments to be made here like boolean variable swap to check if swaps were made or not
     for(int k=n;k>=0;k--)
     {
         for(int g=0;g<n-1;g++)
@@ -48,6 +48,24 @@ void bubble_sort(vector<int> arr,int n)
         cout << arr[m] << " ";
     }
 }
+
+vector<int> insertion_sort(vector<int>& nums,int n)
+
+{
+    for(int i =1;i<n;i++)
+    {
+        int key = nums[i];
+        int j =i-1;
+
+        while(j>=0&&nums[j]>key)
+        {
+            nums[j+1]=nums[j];
+            j--;
+        }
+        nums[j+1]=key;
+    }
+    return nums;
+}
 int main()
 {
     int l=0;
@@ -60,7 +78,11 @@ int main()
     {
     cin >> arr[i];
     }
-    bubble_sort(arr,l);
+    vector<int> new_array = insertion_sort(arr,l);
+    for(int c=0;c<l;c++)
+    {
+        cout<<new_array[c]<<" ";
+    }
     return 0;
 
 }
