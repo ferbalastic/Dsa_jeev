@@ -1,48 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-bool plaindrome(int a)
-{
-    int rs =0;
-    int s=a;
-    while(s>0)
-    {
-        rs = rs*10 + s%10;
-        s=s/10;
-    }
-    return rs==a;
-}
-bool div(int b)
-{
-    if(b%12==0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 int main()
 {
-    //number of queries/test cases
+    long long pal[12]={0,1,2,3,4,5,6,7,8,9,22,11};
+
     int q=0;
-    int n=0;
     cin >> q;
+
     while(q>0)
     {
+        long long n =0;
         cin >> n;
-        for(int i=0;i<=n;i++)
+
+        int rem = n%12;
+        long long a = pal[rem];
+        long long b = n-a;
+        if(b>=0)
         {
-            int a =i;
-            int b=n-a;
-            if(plaindrome(a)&&div(b))
-            {
-                cout << a << " " << b << "\n";
-                break;
-            }
+            cout << a << " "<< b << "\n";
+
+        }
+        else{
+            cout <<"-1\n";
         }
         q--;
     }
+    return 0;
 }
